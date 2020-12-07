@@ -1,0 +1,379 @@
+﻿
+:root {
+    --orangeColor: rgba(236, 153, 0, .9);
+    --darkColor: rgb(26, 26, 30);
+}
+
+body {
+    font-family: 'Kurale', sans-serif;
+    font-weight: 500;
+    background-color: white;
+    position: relative;
+    margin: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--orangeColor);
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.lp_location_center {
+    outline: none !important;
+}
+
+/*---------------Header---------------*/
+
+header {
+    width: 100%;
+    height: 4rem;
+    background-color: var(--orangeColor);
+    padding-top: 1rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+/*---------------Search---------------*/
+
+#searchContainer {
+    width: 80%;
+    position: relative;
+    margin: 2rem auto;
+}
+
+#search {
+    background: none;
+    display: block;
+    
+    width: 100%;
+    height: 2rem;
+    text-indent: 2%;
+    border: 0; 
+    border-bottom: 1px solid #ccc;
+    font-size: 1.2rem;
+}
+
+#searchImg {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    width: 30px;
+}
+
+#search:focus {
+    outline: none;
+}
+
+#search ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--orangeColor);
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+}
+
+#search:focus ~ .focus-border {
+    width: 100%;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    left: 0;
+}
+
+/*---------------Spinner---------------*/
+
+#spinnerWrapper {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 30%;
+    z-index: 999;
+}
+
+#spinner {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+    margin: auto;
+}
+
+#spinner div {
+    position: absolute;
+    opacity: 1;
+    border-radius: 50%;
+    animation: spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+#spinner div:nth-child(1) {
+    border: 4px solid black;
+}
+
+#spinner div:nth-child(2) {
+    border: 4px solid var(--orangeColor);
+    animation-delay: -0.5s;
+}
+
+@keyframes spinner {
+    0% {
+        top: 28px;
+        left: 28px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    
+    100% {
+        top: -1px;
+        left: -1px;
+        width: 58px;
+        height: 58px;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        top: 28px;
+        left: 28px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    
+    100% {
+        top: -1px;
+        left: -1px;
+        width: 58px;
+        height: 58px;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        top: 28px;
+        left: 28px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    
+    100% {
+        top: -1px;
+        left: -1px;
+        width: 58px;
+        height: 58px;
+        opacity: 0;
+    }
+}
+
+/*---------------Container---------------*/
+
+#container {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.countryContainer {
+    width: 20%;
+    text-align: center;
+    margin: 2rem;
+    display: flex;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: flex-end;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+}
+
+.countryImg {
+    width: 225px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 5px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+/*------------------------Top Btn-------------------------*/
+
+#goToTopBtn {
+    display: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    z-index: 999;
+}
+
+/*------------------------Popups-------------------------*/
+    
+.popUpInfo {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    min-height: 900px;
+    background: rgba(210,220,225,.8);
+    top: 0;
+}
+
+.popupCont {
+    display: block;
+    position: fixed;
+    width: 40rem;
+    height: 20rem;
+    background: #fff;
+    padding:3em;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.popupBtnsWrapper {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.popupBtn {
+    background-color: var(--orangeColor);
+    padding: .7rem;
+    width: 7rem;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor:pointer;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+.Xbtn {
+     display: block;
+    position: absolute;
+    width:25px;
+    height:25px;
+    background:url(../images/closeBtn.png) no-repeat top center;
+    background-Size:100% auto;
+    top: 1em;
+    right: 1em;
+    cursor:pointer;
+}
+
+#countryNamePop {
+    text-align: center;
+}
+
+.borderCountry {
+    color: blue;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1300px) {
+    .countryContainer {
+        width: 20%;
+        text-align: center;
+        margin: 2rem;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .countryImg {
+        width: 180px;
+        height: 120px;
+    }
+
+    .popupCont {
+        width: 65%;
+    }
+}
+
+@media only screen and (min-width: 765px) {
+
+    .countryContainer:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+    }
+
+    .countryImg {
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .countryContainer {
+        margin: 1.5rem;
+    }
+
+    .countryImg {
+        width: 140px;
+        height: 94px;
+    }
+
+    .popupCont {
+        top: 4%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .countryContainer {
+        width: 40%;
+        margin: .5rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .countryContainer {
+        width: 30%;
+        margin: 1.5rem;
+    }
+
+    .countryImg {
+        width: 100px;
+        height: 67px;
+    }
+}
