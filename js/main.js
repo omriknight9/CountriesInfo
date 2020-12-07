@@ -1,4 +1,4 @@
-﻿
+
 const baseUrl = 'https://restcountries.eu/rest/v2/';
 
 let borderArr = [];
@@ -19,12 +19,11 @@ $(document).ready(function (event) {
     };
 
     $('#search').on('input', function () {
-        for (var i = 0; i < $('.countryContainer').length; i++) {
-            var countryName = $($('.countryContainer')[i]).find($('.countryName')).html();
-            var searchVal = $('#search').val();
-            var searchValCapitalized = searchVal.charAt(0).toUpperCase() + searchVal.slice(1);
+        for (let i = 0; i < $('.countryContainer').length; i++) {
+            let countryName = $($('.countryContainer')[i]).find($('.countryName')).html().toLowerCase();
+            let searchVal = $('#search').val().toLowerCase();
 
-            if (countryName.includes(searchValCapitalized)) {
+            if (countryName.includes(searchVal)) {
                 $($('.countryContainer')[i]).show();
             } else {
                 $($('.countryContainer')[i]).hide();
