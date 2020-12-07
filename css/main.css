@@ -1,4 +1,4 @@
-﻿
+
 :root {
     --orangeColor: rgba(236, 153, 0, .9);
     --darkColor: rgb(26, 26, 30);
@@ -203,9 +203,9 @@ header {
 }
 
 .countryContainer {
-    width: 20%;
+    width: 8rem;
     text-align: center;
-    margin: 2rem;
+    margin: 1rem;
     display: flex;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -222,8 +222,8 @@ header {
 }
 
 .countryImg {
-    width: 225px;
-    height: 150px;
+    width: 7rem;
+    height: 4rem;
     cursor: pointer;
     border-radius: 5px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
@@ -307,20 +307,7 @@ header {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 1300px) {
-    .countryContainer {
-        width: 20%;
-        text-align: center;
-        margin: 2rem;
-    }
-}
-
 @media only screen and (max-width: 1000px) {
-    .countryImg {
-        width: 180px;
-        height: 120px;
-    }
-
     .popupCont {
         width: 65%;
     }
@@ -343,37 +330,7 @@ header {
 }
 
 @media only screen and (max-width: 765px) {
-    .countryContainer {
-        margin: 1.5rem;
-    }
-
-    .countryImg {
-        width: 140px;
-        height: 94px;
-    }
-
     .popupCont {
         top: 4%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-
-    .countryContainer {
-        width: 40%;
-        margin: .5rem;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-
-    .countryContainer {
-        width: 30%;
-        margin: 1.5rem;
-    }
-
-    .countryImg {
-        width: 100px;
-        height: 67px;
     }
 }
